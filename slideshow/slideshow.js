@@ -36,9 +36,12 @@ function init() {
         // Add the main div to the slideshow
         $(".slideshow-container").append(mainDiv);
 
+        // Capture current value of i
+        const dotIndex = i;
+
         // Create a clickable dot to select images
         var dot = $("<span>").addClass("dot").click(function () {
-            currentSlide($(this).index());
+            currentSlide(dotIndex);
         });
 
         // Add the dot to its container
