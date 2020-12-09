@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // The next slide to be displayed
-    var slideIndex = 0;
+    var nextSlideIndex = 0;
     // The current timer
     var timer;
     // The number of images in the slideshow
@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
 
     // Show the first image to start the slideshow
-    showSlides();
+    startSlideshow();
 
 
     // Next/previous controls
@@ -63,9 +63,9 @@ $(document).ready(function () {
         // Stop the current timer
         clearTimeout(timer);
         // Set the desired slide number
-        slideIndex += n - 1;
+        nextSlideIndex += n - 1;
         // Restart the timer
-        showSlides();
+        startSlideshow();
     }
 
     // Dot controls to jump to a particular image
@@ -73,25 +73,25 @@ $(document).ready(function () {
         // Stop the current timer
         clearTimeout(timer);
         // Set the desired slide number
-        slideIndex = n;
+        nextSlideIndex = n;
         // Restart the timer
-        showSlides();
+        startSlideshow();
     }
 
     // Controls the slideshow progression
-    function showSlides() {
+    function startSlideshow() {
         // Wrap around if it reaches the end/beginning of the slideshow
-        if (slideIndex >= numImages) {
-            slideIndex = 0;
-        } else if (slideIndex < 0) {
-            slideIndex = numImages - 1;
+        if (nextSlideIndex >= numImages) {
+            nextSlideIndex = 0;
+        } else if (nextSlideIndex < 0) {
+            nextSlideIndex = numImages - 1;
         }
         // Show the desired slide
-        showSlide(slideIndex);
+        showSlide(nextSlideIndex);
         // Advance the counter for next time
-        slideIndex++;
+        nextSlideIndex++;
         // Start a time to call this function in 3 seconds
-        timer = setTimeout(showSlides, 3000);
+        timer = setTimeout(startSlideshow, 3000);
     }
 
     // Makes the slide at index n the visible one
