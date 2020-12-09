@@ -79,9 +79,9 @@ $(document).ready(function () {
                 // Stops the interval and changes the time back to black text
                 stopClock();
 
-                // Runs the explode function once, half a second later.
+                // Runs the explode function once, 3.5 seconds later.
                 // setTimeout is a JavaScript function
-                setTimeout(explode, 500);
+                setTimeout(explode, 3500);
             }
             // If we are out of minutes and ALMOST out of seconds, make the clock blink red/black
             else if (seconds < 6) {
