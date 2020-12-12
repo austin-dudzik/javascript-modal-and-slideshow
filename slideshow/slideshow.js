@@ -11,6 +11,7 @@ $(document).ready(function () {
     var imgSrc = ["lights.jpg", "mountain.jpg", "trees.jpg", "snow.jpg"];
     // The image descriptions to be overlayed on the slideshow
     var imgText = ["Northern Lights", "Mountain River", "Valley of Trees", "Snow-Covered Peaks"];
+
     // The number of images in the slideshow
     numImages = imgSrc.length;
 
@@ -26,9 +27,7 @@ $(document).ready(function () {
         var textDiv = $("<div>").addClass("text").text(imgText[i]);
 
         // Add all the child divs to the main div
-        mainDiv.append(numberDiv);
-        mainDiv.append(image);
-        mainDiv.append(textDiv);
+        mainDiv.append(numberDiv, image, textDiv);
 
         // Add the main div to the slideshow
         $(".slideshow-container").append(mainDiv);
@@ -45,6 +44,9 @@ $(document).ready(function () {
         $("#dots").append(dot);
     }
 
+    // Show the first image to start the slideshow
+    startSlideshow();
+
     // To use an event handler with parameters, it must be wrapped inside another function
     $("a.prev").click(function () {
         plusSlides(-1);
@@ -53,10 +55,6 @@ $(document).ready(function () {
     $("a.next").click(function () {
         plusSlides(1)
     });
-
-    // Show the first image to start the slideshow
-    startSlideshow();
-
 
     // Next/previous controls
     function plusSlides(n) {

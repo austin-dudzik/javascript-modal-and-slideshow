@@ -35,33 +35,7 @@
     <br/>
 
     <p class="plain">This is some plain text</p>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="toggle.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script>
-    var theIntervalId;
-
-    function finalBossStyle() {
-        $("p").removeClass("plain fancy").addClass("boss");
-    }
-
-    function toggleStyle() {
-        $("p").toggleClass("plain fancy");
-    }
-
-    function startToggling() {
-        theIntervalId = setInterval(toggleStyle, 500);
-    }
-
-    function stopToggling() {
-        clearInterval(theIntervalId);
-        setTimeout(finalBossStyle, 3500);
-    }
-
-    function init() {
-        $("#startButton").click(startToggling);
-        $("#stopButton").click(stopToggling);
-    }
-
-    $(init);
-</script>
 </html>
