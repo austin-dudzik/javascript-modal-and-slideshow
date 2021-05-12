@@ -22,10 +22,10 @@ $(document).ready(function () {
 
     function showPopup() {
         // Center the popup
-        center();
+        // center();
 
         // Tell the window (browser) to re-center the popup when it is resized
-        $(window).resize(center);
+        // $(window).resize(center);
 
         // Show the transparent overlay that stops the user from interacting
         // with anything underneath
@@ -43,6 +43,6 @@ $(document).ready(function () {
         $("#modal").hide();
 
         // The browser can stop resizing the modal now
-        $(window).off("resize");
+        // $(window).off("resize");
     }
 });
